@@ -97,7 +97,7 @@ def get_welcome_response():
 
 def handle_session_end_request():
     card_title = "Session Ended"
-    speech_output = "Thanks for trying out Rock, Paper, Scissors. \
+    speech_output = "Thanks for trying out my Skill. \
                     A 5-star rating would be very much appreciated."
     # Setting this to true ends the session and exits the skill.
     should_end_session = True
