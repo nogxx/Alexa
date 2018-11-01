@@ -4,54 +4,7 @@ This is a Python template for Alexa to get you building skills quickly.
 
 from __future__ import print_function
 
-
-# --------------- Helpers that build all of the responses ----------------------
-""" 
-Helper functions could be made with decorators instead, advantages/disadvantages?
-"""
-
-def build_speechlet_response(title, output, reprompt_text, should_end_session, output_type="PlainText"):
-    """
-    Builds the response object for the output dict. Dict will get interpreted as json.
-    Valid output types are: "PlainText", "SSML"
-    Very clunky, could probably be improved
-    """
-    
-    json = {
-        'outputSpeech': {
-            'type': output_type,
-            'text': output
-        },
-        'card': {
-            'type': 'Simple',
-            'title': "SessionSpeechlet - " + title,
-            'content': "SessionSpeechlet - " + output
-        },
-        'reprompt': {
-            'outputSpeech': {
-                'type': output_type,
-                'text': reprompt_text
-            }
-        },
-        'shouldEndSession': should_end_session
-    }
-    
-    if output_type == "SSML":
-        del json["outputSpeech"]["text"]
-        del json["reprompt"]["outputSpeech"]["text"]
-
-        json["outputSpeech"]["ssml"] = output
-        json["reprompt"]["outputSpeech"]["ssml"] = reprompt_text   
-    
-    return json
-
-def build_response(session_attributes, speechlet_response):
-    return {
-        'version': '1.0',
-        'sessionAttributes': session_attributes,
-        'response': speechlet_response
-    }
-
+from build_response_helpers import build_speechlet_response, build_response
 
 # --------------- Functions that control the skill's behavior ------------------
 def get_exapmple_response(intent, session):
