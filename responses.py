@@ -14,8 +14,8 @@ class Response:
         self.reprompt_text = reprompt_text
         
         if SSML:
-            self.speech_output = "<speak><prosody rate='90%'" + self.speech_output + "</prosody></speak>"
-            self.reprompt_text = "<speak><prosody rate='90%'" + self.reprompt_text + "</prosody></speak>"
+            self.speech_output = "<speak><prosody rate='90%'>" + self.speech_output + "</prosody></speak>"
+            self.reprompt_text = "<speak><prosody rate='90%'>" + self.reprompt_text + "</prosody></speak>"
 
 
 
