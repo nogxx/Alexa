@@ -2,9 +2,8 @@
 This is a Python template for Alexa to get you building skills quickly.
 """
 
-from __future__ import print_function
-
 from build_response_helpers import build_speechlet_response, build_response
+from responses import all_resonses
 
 # --------------- Functions that control the skill's behavior ------------------
 def get_exapmple_response(intent, session):
