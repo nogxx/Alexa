@@ -113,16 +113,18 @@ def lambda_handler(event, context):
     etc.) The JSON body of the request is provided in the event parameter.
     """
     print("Incoming request...")
-    # print("printing event...")
-    # print(event)
-    # print("printing context...")
-    # print(context)
-
+    # print("printing event...", event)
+    # print("printing context...", context)
 
     # Skill ID
+    applicationId = event["session"]['application']['applicationId']
+    print(applicationId)
+    
+    # 1st = Production skill, 2nd = Testing skill
+    valid_application_Id = ["HERE GOES THE PRODUCTION SKILL ID",
+                            "HERE GOES THE TESTING SKILL ID IF IT EXISTS"]
 
-    if (event['session']['application']['applicationId'] !=
-            "HERE GOES THE SKILL ID"):
+    if applicationId not in valid_application_Id:
         raise ValueError("Invalid Application ID")
 
     if event['session']['new']:
