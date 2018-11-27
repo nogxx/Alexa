@@ -25,11 +25,11 @@ class Response:
 
 #-------------------------------------------------------------------------------
 
-
+sample = Response("""This is a sample response.""", SSML=True)
 
 
 #-------------------------------------------------------------------------------
 
-all_responses = {"sample": "test"
+all_responses = {"sample": sample
     
 }
