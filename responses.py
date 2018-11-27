@@ -3,8 +3,11 @@ Class for creating the Alexa responses that the user gets
 
 Set 'SSML=True' for adding the <speak> tag (and reducing the speech rate to 90%)
 
+Make sure to write all of your speech output with this class so that it is 
+    easier to translate all of it at the same time
+
 TO DO:
-    
+    Make possible to translate
 
 """
 
