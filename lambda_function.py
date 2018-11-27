@@ -6,6 +6,26 @@ from build_response_helpers import build_speechlet_response, build_response
 from responses import all_resonses
 
 # --------------- Functions that control the skill's behavior ------------------
+def response_generator(intent, session, mod=""):
+    """Concatenates multiple responses together. """
+    
+    speech_output = "<speak><prosody rate='90%'>"
+    session_attributes = {}
+    should_end_session = False
+    card_title = "Horrible Movie Plots"
+    
+    if mod in ["QUESTION", "HELP", "LAUNCH"]:
+        speech_text, reprompt_text, session_attributes = get_question_response(intent, session, mod)
+    
+    elif mod == "ANSWER":
+        speech_output += get_answer_response(intent, session)
+        speech_text, reprompt_text, session_attributes = get_question_response(intent, session, mod)
+
+    speech_output += speech_text + "</prosody></speak>"
+    
+    return build_response(session_attributes, build_speechlet_response(
+        speech_output, reprompt_text, should_end_session, card_title, output_type="SSML"))
+
 def get_exapmple_response(intent, session):
     """Example of a simple speech response
     """
